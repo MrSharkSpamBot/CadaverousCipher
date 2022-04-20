@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+Unbreakable hybrid cryptography using both substitution and data shuffling.
+
+@author: Mr. Shark Spam Bot
+"""
 import random
 
 def generate_dictionary(characters):
