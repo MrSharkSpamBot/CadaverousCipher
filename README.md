@@ -1,5 +1,5 @@
 # CadaverousCipher
-Uncrackable hybrid cryptography using both substitution and data shuffling.
+An uncrackable substitution cipher using randomly generated characters.
 
 ## Installation
 ### Debian
