@@ -13,7 +13,6 @@ $ sudo pacman -S python git
 $ git clone https://github.com/MrSharkSpamBot/CadaverousCipher.git
 ```
 
-
 ## Usage
 ```
 >>> import string
@@ -27,4 +26,15 @@ $ git clone https://github.com/MrSharkSpamBot/CadaverousCipher.git
 >>> decrypted = decrypt(encrypted, dictionary)
 >>> decrypted
 'This is the power of the CadaverousCipher...'
+```
+
+## Usage for Shadow Shark Reverse Shell
+```
+>>> import string
+>>> import json
+>>> import CadaverousCipher
+>>> dictionary = CadaverousCipher.generate_dictionary(string.printable)
+>>> dictionary = json.dumps(dictionary)
+>>> dictionary
+'{"0": "\\ud907\\udc3b", "1": "\\ud9c0\\uddc2", "2": "\\ud801\\ude92", "3": "\\ud88f\\udd16", "4": "\\ud8e4\\udc50", "5": "\\ud833\\ude3a", "6": "\\ud8d2\\uddb2", "7": "\\uda27\\udc39", "8": "\\ud8b4\\udd92", "9": "\\ud8c4\\udc11", "a": "\\uda04\\udfd4", "b": "\\uda22\\udf88", "c": "\\uda2b\\udef3", "d": "\\ud9f5\\udd1e", "e": "\\ud912\\udfe0", "f": "\\uda88\\udc4a", "g": "\\uda6b\\udc68", "h": "\\ud98d\\udc6a", "i": "\\udb3e\\udfa3", "j": "\\uda3d\\ude34", "k": "\\ud9d8\\udc62", "l": "\\ud8ba\\udf74", "m": "\\udadf\\udd5e", "n": "\\ud851\\udcdb", "o": "\\ud96b\\ude64", "p": "\\udb58\\uded3", "q": "\\u53a0", "r": "\\ud845\\udc51", "s": "\\udcd2", "t": "\\u32f9", "u": "\\ud94d\\udcc5", "v": "\\ud931\\udd2b", "w": "\\ud8e9\\uddb7", "x": "\\ud9a9\\ude38", "y": "\\ud828\\udf0a", "z": "\\uda16\\udc0a", "A": "\\ud96b\\udc96", "B": "\\ua34e", "C": "\\uda6b\\uddbb", "D": "\\udb10\\udf14", "E": "\\udac4\\udc58", "F": "\\ud8d4\\uddce", "G": "\\udb32\\udd7a", "H": "\\u252e", "I": "\\ud90d\\udcff", "J": "\\ud99b\\udcb3", "K": "\\ud8ce\\udf4f", "L": "\\ud9ef\\udf8e", "M": "\\ud977\\uddcd", "N": "\\ud94d\\ude6f", "O": "\\udb2d\\udd5b", "P": "\\ud939\\udfe0", "Q": "\\ud8a5\\udc06", "R": "\\ud846\\ude12", "S": "\\uda39\\udf36", "T": "\\udb19\\udc01", "U": "\\ud9f4\\uddb0", "V": "\\udaa8\\udfb5", "W": "\\udafe\\udd38", "X": "\\ud887\\udd14", "Y": "\\ud9ba\\ude3c", "Z": "\\udb74\\ude96", "!": "\\udb8a\\udffb", "\\"": "\\ud9ae\\udf3c", "#": "\\ud8d6\\udcb1", "$": "\\ud871\\uddaa", "%": "\\udac9\\udd05", "&": "\\ud892\\udf6d", "\'": "\\ud9e3\\udf9b", "(": "\\uda23\\udf77", ")": "\\udad2\\udc9c", "*": "\\udb0f\\udd39", "+": "\\udb80\\udcf1", ",": "\\udaac\\udf62", "-": "\\ud8a7\\ude25", ".": "\\udb2c\\ude9f", "/": "\\udb57\\uddf7", ":": "\\uc125", ";": "\\uda1a\\udee3", "<": "\\udb65\\udf84", "=": "\\udac8\\udc70", ">": "\\udb53\\uddb6", "?": "\\udb27\\ude5a", "@": "\\uda7c\\uddb6", "[": "\\u6fe4", "\\\\": "\\ud9be\\uddab", "]": "\\ud9f8\\udf98", "^": "\\udb79\\udd92", "_": "\\ud97c\\ude12", "`": "\\udb43\\udf24", "{": "\\ud927\\udd8b", "|": "\\ud92c\\uddd8", "}": "\\ud82e\\udd9f", "~": "\\uda72\\udc0b", " ": "\\udad1\\udf4b", "\\t": "\\uda09\\ude77", "\\n": "\\ud94f\\udc69", "\\r": "\\ud842\\udc51", "\\u000b": "\\udb67\\udfe1", "\\f": "\\ud942\\udff4"}'
 ```
