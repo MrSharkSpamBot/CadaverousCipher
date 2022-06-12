@@ -1,5 +1,5 @@
 # Cadaverous Cipher
-A simple substitution cipher which uses randomly generated characters as substitutes.
+A polyalphabetic substitution cipher which uses randomly generated characters as substitutes.
 
 ## Installation
 ### Debian
