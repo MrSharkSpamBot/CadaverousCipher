@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-A polyalphabetic substitution cipher which uses randomly generated characters as substitutes.
+A permutation based substitution cipher which uses randomly generated characters as substitutes.
 
 @author: Mr. Shark Spam Bot
 """
