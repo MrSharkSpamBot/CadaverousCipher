@@ -4,6 +4,7 @@ A keyed permutation based substitution cipher which uses randomly generated subs
 
 @author: Mr. Shark Spam Bot
 """
+
 import secrets
 import itertools
 
