@@ -8,7 +8,7 @@ A keyed permutation based substitution cipher which uses randomly generated subs
 import secrets
 import itertools
 
-def generate_dictionary(characters, subdictionary_count):
+def generate_dictionary(characters: str, subdictionary_count: int) -> dict:
     '''
     Generate a dictionary which serves as a character mapping for the encryption key.
 
@@ -43,7 +43,7 @@ def generate_dictionary(characters, subdictionary_count):
         dictionary.update({i: sub_dictionary})
     return dictionary
 
-def encrypt(text, dictionary, key):
+def encrypt(text: str, dictionary: dict, key: str) -> str:
     '''
     Encrypt text using the dictionary as an encryption key.
 
@@ -94,7 +94,7 @@ def encrypt(text, dictionary, key):
         index += 1
     return encrypted_text
 
-def decrypt(text, dictionary, key):
+def decrypt(text: str, dictionary: dict, key: str) -> str:
     '''
     Decrypt text using the dictionary as a dectyption key.
 
