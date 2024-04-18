@@ -25,12 +25,9 @@ def generate_dictionary(characters: str, subdictionary_count: int) -> dict:
         The encryption / decryption key.
 
     '''
-    if not isinstance(characters, str):
-        raise TypeError('characters must be a str object')
-    if not isinstance(subdictionary_count, int):
-        raise TypeError('dictionary_count must be an int object')
     dictionary = {}
     system_random = secrets.SystemRandom()
+
     for i in range(1, (subdictionary_count + 1)):
         sub_dictionary = {}
         for character in characters:
@@ -62,16 +59,11 @@ def encrypt(text: str, dictionary: dict, key: str) -> str:
         The encrypted text.
 
     '''
-    if not isinstance(text, str):
-        raise TypeError('text must be a str object')
-    if not isinstance(dictionary, dict):
-        raise TypeError('dictionary must be a dict object')
-    if not isinstance(key, str):
-        raise TypeError('key must be a str object')
     encrypted_text = ''
     len_dictionary_keys = len(dictionary.keys())
     perms = list(itertools.permutations(range(1, len_dictionary_keys+1)))
     sliced_text = []
+
     for i in range(0, len(text), len_dictionary_keys):
         sliced_text.append(text[i: i+len_dictionary_keys])
     index = 0
@@ -83,9 +75,9 @@ def encrypt(text: str, dictionary: dict, key: str) -> str:
         for number, character in itertools.zip_longest(perm, slice_chars):
             if not character:
                 break
-            if key_index >= len(key):
+            elif key_index >= len(key):
                 key_index = 0
-            if character in dictionary[number].keys():
+            elif character in dictionary[number].keys():
                 substitute_character = chr(abs(ord(dictionary[number][character]) - ord(dictionary[number][key[key_index]])))
                 encrypted_text += substitute_character
             else:
@@ -113,16 +105,11 @@ def decrypt(text: str, dictionary: dict, key: str) -> str:
         The decrypted text.
 
     '''
-    if not isinstance(text, str):
-        raise TypeError('text must be a str object')
-    if not isinstance(dictionary, dict):
-        raise TypeError('dictionary must be a dict object')
-    if not isinstance(key, str):
-        raise TypeError('key must be a str object')
     decrypted_text = ''
     len_dictionary_keys = len(dictionary.keys())
     perms = list(itertools.permutations(range(1, len_dictionary_keys+1)))
     sliced_text = []
+
     for i in range(0, len(text), len_dictionary_keys):
         sliced_text.append(text[i: i+len_dictionary_keys])
     index = 0
@@ -134,16 +121,16 @@ def decrypt(text: str, dictionary: dict, key: str) -> str:
         for number, substitute_character in itertools.zip_longest(perm, slice_chars):
             if not substitute_character:
                 break
-            if key_index >= len(key):
+            elif key_index >= len(key):
                 key_index = 0
             characters = list(dictionary[number].keys())
             substitute_characters = list(dictionary[number].values())
             replacement_substitute_character = ord(substitute_character) + ord(dictionary[number][key[key_index]])
             if replacement_substitute_character in range(0x110000):
                 replacement_substitute_character = chr(replacement_substitute_character)
-            if not replacement_substitute_character in substitute_characters:
+            elif not replacement_substitute_character in substitute_characters:
                 replacement_substitute_character = chr(abs(ord(dictionary[number][key[key_index]]) - ord(substitute_character)))
-            if replacement_substitute_character in substitute_characters:
+            elif replacement_substitute_character in substitute_characters:
                 decrypted_text += characters[substitute_characters.index(replacement_substitute_character)]
             else:
                 decrypted_text += substitute_character
