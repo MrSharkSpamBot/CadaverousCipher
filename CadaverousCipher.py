@@ -75,7 +75,7 @@ def encrypt(text: str, dictionary: dict, key: str) -> str:
         for number, character in itertools.zip_longest(perm, slice_chars):
             if not character:
                 break
-            elif key_index >= len(key):
+            if key_index >= len(key):
                 key_index = 0
             elif character in dictionary[number].keys():
                 substitute_character = chr(abs(ord(dictionary[number][character]) - ord(dictionary[number][key[key_index]])))
@@ -121,7 +121,7 @@ def decrypt(text: str, dictionary: dict, key: str) -> str:
         for number, substitute_character in itertools.zip_longest(perm, slice_chars):
             if not substitute_character:
                 break
-            elif key_index >= len(key):
+            if key_index >= len(key):
                 key_index = 0
             characters = list(dictionary[number].keys())
             substitute_characters = list(dictionary[number].values())
