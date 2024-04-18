@@ -128,7 +128,7 @@ def decrypt(text: str, dictionary: dict, key: str) -> str:
             replacement_substitute_character = ord(substitute_character) + ord(dictionary[number][key[key_index]])
             if replacement_substitute_character in range(0x110000):
                 replacement_substitute_character = chr(replacement_substitute_character)
-            elif not replacement_substitute_character in substitute_characters:
+            if not replacement_substitute_character in substitute_characters:
                 replacement_substitute_character = chr(abs(ord(dictionary[number][key[key_index]]) - ord(substitute_character)))
             elif replacement_substitute_character in substitute_characters:
                 decrypted_text += characters[substitute_characters.index(replacement_substitute_character)]
