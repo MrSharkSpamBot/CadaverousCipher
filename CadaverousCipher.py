@@ -77,7 +77,7 @@ def encrypt(text: str, dictionary: dict, key: str) -> str:
                 break
             if key_index >= len(key):
                 key_index = 0
-            elif character in dictionary[number].keys():
+            if character in dictionary[number].keys():
                 substitute_character = chr(abs(ord(dictionary[number][character]) - ord(dictionary[number][key[key_index]])))
                 encrypted_text += substitute_character
             else:
